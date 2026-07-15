@@ -1,10 +1,37 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿using System;
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+class Program
+{
+    static void Main()
+    {
+        // Variables que nos ayudan a movernos dentro de la matriz
+        int numeroFila, numeroColumna;
 
-</Project>
+        // Creamos una matriz de 4x4
+        int[,] matrizColumnas = new int[4, 4];
+
+        // Recorremos cada fila
+        for (numeroFila = 0; numeroFila < 4; numeroFila++)
+        {
+            // Recorremos cada columna
+            for (numeroColumna = 0; numeroColumna < 4; numeroColumna++)
+            {
+                // Guardamos el número de la columna para formar el patrón:
+                // 1 2 3 4 (le sumamos 1 porque los índices en C# empiezan en 0)
+                matrizColumnas[numeroFila, numeroColumna] = numeroColumna + 1;
+            }
+        }
+
+        // Mostramos la matriz ya llena
+        Console.WriteLine("Matriz de Columnas");
+        for (numeroFila = 0; numeroFila < 4; numeroFila++)
+        {
+            for (numeroColumna = 0; numeroColumna < 4; numeroColumna++)
+            {
+                Console.Write(matrizColumnas[numeroFila, numeroColumna] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
